@@ -8,6 +8,8 @@ public class BookDto {
 	
 	private int price;
 
+	private int port;
+
 	public long getId() {
 		return id;
 	}
@@ -32,12 +34,21 @@ public class BookDto {
 		this.price = price;
 	}
 
+	public int getPort() {
+		return port;
+	}
+
+	public void setPort(int port) {
+		this.port = port;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + (int) (id ^ (id >>> 32));
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + port;
 		result = prime * result + price;
 		return result;
 	}
@@ -58,9 +69,11 @@ public class BookDto {
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (port != other.port)
+			return false;
 		if (price != other.price)
 			return false;
 		return true;
 	}
-
+	
 }
